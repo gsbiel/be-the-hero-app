@@ -1,0 +1,27 @@
+# Versão do docker compose a ser usada
+version: "3"
+
+# Nas linhas abaixos são configurados os serviços que compreendem a aplicação.
+# Cada serviço é uma aplicação rodando em um container.
+services:
+  app.backend.dev: 
+    container_name: api.backend.dev
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    restart: unless-stopped
+    volumes: 
+      - ./backend:/usr/app
+    ports: 
+      - "3333:3333"
+  
+  app.frontend.dev:
+    container_name: api.frontend.dev
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    volumes: 
+      - ./frontend:/usr/app
+    ports: 
+      - "3000:3000"
+    

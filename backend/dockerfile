@@ -1,0 +1,27 @@
+# A partir da imagem do node derivada do linux alpine.
+FROM node:alpine
+
+# Diretório dentro do container que quero trabalhar
+WORKDIR /usr/app/
+
+# Copia os arquivos package.json e package-lock.json
+# Origem: Diretório onde está o dockerfile
+# Destino: Diretório definido no WORKDIR
+COPY package*.json ./
+
+# Roda o comando npm install dentro do container
+# Esse comando vai gerar uma pasta node_modules dentro do container
+# Veja que dentro do diretório aqui do host você já tem uma pasta node_modules
+RUN npm install
+
+# Copia todos os arquivos da origem para o destino
+# (Com exceção dos arquivos definidos no .dockerignore)
+# Origem: Diretório onde está o dockerfile
+# Destino: Diretório definido no WORKDIR
+COPY . .
+
+# Permite ao container ficar escutando apenas a porta 3333
+EXPOSE 3333
+
+# Após o término da build, assim que o container for iniciado, o comando abaixo é executado no terminal.
+CMD ["npm","start"]
