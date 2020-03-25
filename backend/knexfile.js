@@ -6,7 +6,7 @@ module.exports = {
       client: 'mysql',
       version: '5.7',
       connection: {
-        host : '0.0.0.0',
+        host : '172.19.0.1',
         database: 'backend',
         user: 'root',
         password: 'root',
