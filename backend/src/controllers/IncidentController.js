@@ -21,7 +21,19 @@ module.exports = {
     },
 
     async list(request, response){
-        const incidents = await connection('incidents').where('ong_id', ong_id).select("*");
+        const {page = 1} = request.query;
+
+        // Quando se trabalha com paginação, deve-se passar o total de itens para o front.
+        // Esse valor é passado no header da resposta.
+        const [total] = await connection('incidents').count();
+
+        const incidents = await connection('incidents')
+            .limit(5)
+            .offset((page-1)*5)
+            .select("*");
+
+        response.header('X-Total-Count', total["count(*)"]);
+
         return response.json(incidents);
     },
 
