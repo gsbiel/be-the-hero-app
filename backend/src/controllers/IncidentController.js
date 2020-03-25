@@ -28,9 +28,17 @@ module.exports = {
         const [total] = await connection('incidents').count();
 
         const incidents = await connection('incidents')
+            .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
             .limit(5)
             .offset((page-1)*5)
-            .select("*");
+            .select([
+                        'incidents.*',      // Todos os campos da tabela incidents
+                        'ongs.name',        // Join do campo name da tabela ongs
+                        'ongs.email',       // Join do campo email da tabela ongs
+                        'ongs.whatsapp',    // Join do campo whatsapp da tabela ongs
+                        'ongs.city',        // Join do campo city da tabela ongs
+                        'ongs.uf'           // Join do campo uf da tabela ongs
+                    ]);
 
         response.header('X-Total-Count', total["count(*)"]);
 
