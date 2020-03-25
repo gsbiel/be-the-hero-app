@@ -1,6 +1,9 @@
 # Versão do docker compose a ser usada
 version: "3"
 
+volumes:
+  mysql_dev:
+
 # Nas linhas abaixos são configurados os serviços que compreendem a aplicação.
 # Cada serviço é uma aplicação rodando em um container.
 services:
@@ -24,4 +27,18 @@ services:
       - ./frontend:/usr/app
     ports: 
       - "3000:3000"
+
+  database.beahero.dev:
+    container_name: database.beahero.dev
+    image: mysql:5.7
+    command: --max_allowed_packet=512M
+    volumes:
+      - mysql_dev:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: backend
+    ports:
+      - "3334:3334" 
+    
+    
     

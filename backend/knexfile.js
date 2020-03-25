@@ -3,10 +3,16 @@
 module.exports = {
 
   development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './src/database/db.sqlite'
-    }
+      client: 'mysql',
+      connection: {
+        host : 'database.beahero.dev:3334',
+        database: 'backend',
+        user: 'root',
+        password: 'root',
+      },
+      migrations: {
+        directory: './src/database/migrations'
+      }
   },
 
   staging: {
