@@ -4,8 +4,9 @@ module.exports = {
 
   development: {
       client: 'mysql',
+      version: '5.7',
       connection: {
-        host : 'database.beahero.dev:3334',
+        host : '0.0.0.0',
         database: 'backend',
         user: 'root',
         password: 'root',

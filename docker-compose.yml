@@ -38,7 +38,9 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: backend
     ports:
-      - "3334:3334" 
+      - "3306:3306" 
+    expose:
+      - '3306'
     
     
     
