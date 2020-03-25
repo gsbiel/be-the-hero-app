@@ -21,7 +21,7 @@ module.exports = {
     },
 
     async list(request, response){
-        const incidents = await connection('incidents').select("*");
+        const incidents = await connection('incidents').where('ong_id', ong_id).select("*");
         return response.json(incidents);
     },
 
