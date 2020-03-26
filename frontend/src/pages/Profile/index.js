@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {
-    FiPower
+    FiPower,
+    FiTrash2
 } from 'react-icons/fi'
 import './styles.css';
 
@@ -18,6 +19,70 @@ const Profile = (props) => {
                     <FiPower size = {18} color = "E02041" />
                 </button>
             </header>
+
+            <h1>Casos cadastrados</h1>
+
+            <ul>
+                <li>
+                    <strong>Caso:</strong>
+                    <p>Caso teste</p>
+
+                    <strong>Descrição</strong>
+                    <p>Descrição teste</p>
+
+                    <strong>Valor:</strong>
+                    <p>R$ 120,00</p>
+
+                    <button type="button">
+                        <FiTrash2 size = {30} color = "A8A8B3"/>
+                    </button>
+                </li>
+
+                <li>
+                    <strong>Caso:</strong>
+                    <p>Caso teste</p>
+
+                    <strong>Descrição</strong>
+                    <p>Descrição teste</p>
+
+                    <strong>Valor:</strong>
+                    <p>R$ 120,00</p>
+
+                    <button type="button">
+                        <FiTrash2 size = {30} color = "A8A8B3"/>
+                    </button>
+                </li>
+
+                <li>
+                    <strong>Caso:</strong>
+                    <p>Caso teste</p>
+
+                    <strong>Descrição</strong>
+                    <p>Descrição teste</p>
+
+                    <strong>Valor:</strong>
+                    <p>R$ 120,00</p>
+
+                    <button type="button">
+                        <FiTrash2 size = {30} color = "A8A8B3"/>
+                    </button>
+                </li>
+
+                <li>
+                    <strong>Caso:</strong>
+                    <p>Caso teste</p>
+
+                    <strong>Descrição</strong>
+                    <p>Descrição teste</p>
+
+                    <strong>Valor:</strong>
+                    <p>R$ 120,00</p>
+
+                    <button type="button">
+                        <FiTrash2 size = {30} color = "A8A8B3"/>
+                    </button>
+                </li>
+            </ul>
         </div>
     );
 }
