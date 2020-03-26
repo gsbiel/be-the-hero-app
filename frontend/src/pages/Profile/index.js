@@ -7,13 +7,17 @@ import {
 import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
+import Case from './Case';
 
 const Profile = (props) => {
+
+    const ongName = localStorage.getItem('ongName');
+
     return(
         <div className = "profile-container">
             <header>
                 <img src = {logoImg} alt = "Be the Hero" />
-                <span>Bem vinda, APAD</span>
+                <span>Bem vinda, {ongName}</span>
                 <Link className = "button" to = "/incidents/new">Cadastrar novo caso</Link>
                 <button type="button">
                     <FiPower size = {18} color = "E02041" />
@@ -23,65 +27,14 @@ const Profile = (props) => {
             <h1>Casos cadastrados</h1>
 
             <ul>
-                <li>
-                    <strong>Caso:</strong>
-                    <p>Caso teste</p>
 
-                    <strong>Descrição</strong>
-                    <p>Descrição teste</p>
+                <Case name="Caso teste" description="descrição" value="R$ 12.000,00" />
+                <Case name="Caso teste" description="descrição" value="R$ 12.000,00" />
+                <Case name="Caso teste" description="descrição" value="R$ 12.000,00" />
+                <Case name="Caso teste" description="descrição" value="R$ 12.000,00" />
+                <Case name="Caso teste" description="descrição" value="R$ 12.000,00" />
+                <Case name="Caso teste" description="descrição" value="R$ 12.000,00" />
 
-                    <strong>Valor:</strong>
-                    <p>R$ 120,00</p>
-
-                    <button type="button">
-                        <FiTrash2 size = {30} color = "A8A8B3"/>
-                    </button>
-                </li>
-
-                <li>
-                    <strong>Caso:</strong>
-                    <p>Caso teste</p>
-
-                    <strong>Descrição</strong>
-                    <p>Descrição teste</p>
-
-                    <strong>Valor:</strong>
-                    <p>R$ 120,00</p>
-
-                    <button type="button">
-                        <FiTrash2 size = {30} color = "A8A8B3"/>
-                    </button>
-                </li>
-
-                <li>
-                    <strong>Caso:</strong>
-                    <p>Caso teste</p>
-
-                    <strong>Descrição</strong>
-                    <p>Descrição teste</p>
-
-                    <strong>Valor:</strong>
-                    <p>R$ 120,00</p>
-
-                    <button type="button">
-                        <FiTrash2 size = {30} color = "A8A8B3"/>
-                    </button>
-                </li>
-
-                <li>
-                    <strong>Caso:</strong>
-                    <p>Caso teste</p>
-
-                    <strong>Descrição</strong>
-                    <p>Descrição teste</p>
-
-                    <strong>Valor:</strong>
-                    <p>R$ 120,00</p>
-
-                    <button type="button">
-                        <FiTrash2 size = {30} color = "A8A8B3"/>
-                    </button>
-                </li>
             </ul>
         </div>
     );
