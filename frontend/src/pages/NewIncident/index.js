@@ -4,21 +4,33 @@ import {
     FiArrowLeft
 
 } from 'react-icons/fi';
+import api from '../../services/api';
 import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
 
-const newIncident = (props) => {
+const NewIncident = (props) => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [value, setValue] = useState("");
 
-    const onSubmitHandler = (event) => {
+    const onSubmitHandler = async (event) => {
         event.preventDefault();
-
-        data = {
-            title: event.target.
+        const data = {
+            title,
+            description,
+            value
+        }
+        try{
+            const resp = await api.post('/incidents',data,{
+                headers:{
+                    Authorization: localStorage.getItem('ongId')
+                }
+            });
+            console.log(`Ong criada com id: ${resp.data.id}`);
+        }catch(err){
+            alert('[NewIncident onSubmitHandler]: Aconteceu um erro na requisição com o backend.')
         }
     }
 
@@ -36,9 +48,21 @@ const newIncident = (props) => {
                 </section>
 
                 <form onSubmit={(event) => onSubmitHandler(event)}>
-                    <input placeholder="Título do caso" /> 
-                    <textarea placeholder="Descrição" />
-                    <input placeholder="Valor em reais" />
+                    <input 
+                        placeholder="Título do caso" 
+                        value={title}
+                        onChange={(event) => setTitle(event.target.value)}   
+                    /> 
+                    <textarea 
+                        placeholder="Descrição" 
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}   
+                    />
+                    <input 
+                        placeholder="Valor em reais" 
+                        value={value}
+                        onChange={(event) => setValue(event.target.value)}
+                    />
                     <button className="button" type="submit">Cadastrar</button>
                 </form>
 
@@ -47,4 +71,4 @@ const newIncident = (props) => {
     );
 }
 
-export default newIncident;
+export default NewIncident;

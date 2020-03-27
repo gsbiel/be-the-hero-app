@@ -53,7 +53,7 @@ const Profile = (props) => {
         return <Case 
                 key={caseItem.id} 
                 id = {caseItem.id}
-                name={caseItem.name} 
+                name={caseItem.title} 
                 description={caseItem.description} 
                 value={Intl.NumberFormat('pt-BR',{style: 'currency', currency:'BRL'}).format(caseItem.value)} 
                 onDeleteHandler = {onDeleteCase}/>
