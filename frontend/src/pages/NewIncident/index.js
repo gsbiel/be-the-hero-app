@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {
     FiArrowLeft
@@ -9,6 +9,20 @@ import './styles.css';
 import logoImg from '../../assets/logo.svg';
 
 const newIncident = (props) => {
+
+    const [title, setTitle] = useState("");
+    const [description, setDescription] = useState("");
+    const [value, setValue] = useState("");
+
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+
+        data = {
+            title: event.target.
+        }
+    }
+
+
     return(
         <div className = "new-incident">
             <div className = "content">
@@ -21,7 +35,7 @@ const newIncident = (props) => {
                     </Link>
                 </section>
 
-                <form>
+                <form onSubmit={(event) => onSubmitHandler(event)}>
                     <input placeholder="Título do caso" /> 
                     <textarea placeholder="Descrição" />
                     <input placeholder="Valor em reais" />

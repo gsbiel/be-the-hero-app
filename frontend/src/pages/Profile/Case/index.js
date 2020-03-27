@@ -15,7 +15,7 @@ const Case = (props) => {
             <strong>Valor:</strong>
             <p>{props.value}</p>
 
-            <button type="button">
+            <button type="button" onClick = {() => props.onDeleteHandler(props.id)}>
                 <FiTrash2 size = {30} color = "A8A8B3"/>
             </button>
         </li>
